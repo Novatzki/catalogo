@@ -9,7 +9,7 @@ function conecta()
     $usuario = "root";
     $senha = "elaborata";
     $host = "127.0.0.1";
-    $database = "catalogo";
+    $database = "catalago";
 
     $con = mysqli_connect($host, $usuario, $senha, $database);
     mysqli_set_charset($con, "utf8");
@@ -23,7 +23,7 @@ function obtemTodosFilmes()
 
     $con = conecta();
 
-    $sql = "SELECT * FROM filmes";
+    $sql = "SELECT * FROM Filmes";
 
     $retorno = mysqli_query($con, $sql);
 
@@ -37,7 +37,7 @@ function obtemFilme($id)
     $con = conecta();
 
     $sql = "SELECT *
-        FROM filmes
+        FROM Filmes
         WHERE id = $id";
 
     $retorno = mysqli_query($con, $sql);
@@ -52,7 +52,7 @@ function cadastraFilme($titulo, $imagem, $descricao, $diretor, $ator)
 {
 
 
-    $sql = "INSERT INTO filmes (nome, imagem, descricao, categoria, diretor, atores, avaliacao)
+    $sql = "INSERT INTO Filmes (nome, imagem, descricao, categoria, diretor, atores, avaliacao)
             VALUES ('"
             . $titulo 
             ."', '$imagem', '"
@@ -84,7 +84,7 @@ function uploadCapa($arquivo_orig, $extensao)
 function removerFilme($id)
 {
     $con = conecta();
-    $sql = "DELETE FROM filmes WHERE id = $id";
+    $sql = "DELETE FROM Filmes WHERE id = $id";
     
     return mysqli_query($con, $sql);
     
@@ -102,7 +102,7 @@ function atualizaFilme($id, $titulo, $imagem, $descricao, $diretor, $ator)
         $set_imagem = "";
     }
     
-    $sql = "UPDATE filmes
+    $sql = "UPDATE Filmes
             SET nome = '$titulo', 
                 descricao = '$descricao', 
                 diretor = '$diretor', 

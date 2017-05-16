@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+
+require_once './model/filmes_pdo.php';
+
+?>
+
+
+
+
+!<DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -45,51 +54,30 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
+         <?php
+         
+            $filmes = listaFilmes();
+          
+         
+            /*for ($i=o; $1 < count ($filmes); $i==)
+             * {
+             *  $filme = $filmes[$1];
+             * }
+             */
+            
+            foreach ($filmes as $filme):
+         ?>
         
         <div class="col-md-4">
-          <h2>Mad Max</h2>
+          <h2><?php echo $filme ["nome"] ?></h2>
           
-          <img src="imagens/madmax.jpg" alt="" class="img-thumbnail"/>
+          <img src="imagens/<?php echo $filme ["imagem"] ?>" alt="" class="img-thumbnail"/>
           
-          <p>Muitas loucuras sobre rodas.</p>
+          <p><?php echo $filme["descricao"] ?>   </p>
           <p><a class="btn btn-default" href="detalhes.php" role="button">Ver detalhes &raquo;</a></p>
         </div>
-        
-          <div class="col-md-4">
-          <h2>Mad Max</h2>
+        <?php   endforeach; ?>
           
-          <img src="imagens/madmax.jpg" alt="" class="img-thumbnail"/>
-          
-          <p>Muitas loucuras sobre rodas.</p>
-          <p><a class="btn btn-default" href="#" role="button">Ver detalhes &raquo;</a></p>
-        </div>
-          
-          <div class="col-md-4">
-          <h2>Mad Max</h2>
-          
-          <img src="imagens/madmax.jpg" alt="" class="img-thumbnail"/>
-          
-          <p>Muitas loucuras sobre rodas.</p>
-          <p><a class="btn btn-default" href="#" role="button">Ver detalhes &raquo;</a></p>
-        </div>
-          
-          <div class="col-md-4">
-          <h2>Mad Max</h2>
-          
-          <img src="imagens/madmax.jpg" alt="" class="img-thumbnail"/>
-          
-          <p>Muitas loucuras sobre rodas.</p>
-          <p><a class="btn btn-default" href="#" role="button">Ver detalhes &raquo;</a></p>
-        </div>
-          
-          <div class="col-md-4">
-          <h2>Mad Max</h2>
-          
-          <img src="imagens/madmax.jpg" alt="" class="img-thumbnail"/>
-          
-          <p>Muitas loucuras sobre rodas.</p>
-          <p><a class="btn btn-default" href="#" role="button">Ver detalhes &raquo;</a></p>
-        </div>
       </div>
 
       <hr>
