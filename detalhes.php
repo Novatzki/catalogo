@@ -1,3 +1,13 @@
+<?php
+
+    require_once 'model/filmes_pdo.php';
+
+    $id = $_GET["id"];
+    $filme = getFilme($id);
+   
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,7 +36,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Meu NetFlix</a>
+                    <a class="navbar-brand" href="index.php">Meu NetFlix</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <form class="navbar-form navbar-right">
@@ -46,8 +56,8 @@
             <!-- Example row of columns -->
             <div class="row">
 
-                <h1>Nome do Filme</h1>
-                <img src="imagens/madmax.jpg" alt="" class="img-thumbnail"/>
+                <h1><?php echo $filme ["nome"]?></h1>
+                <img src="imagens/<?php echo $filme ["imagem"]?>" alt="" class="img-thumbnail"/>
 
                 <p>Descrição do Filme: altas aventuras com uma turminha do barulho</p>
                 <p>Categoria: Ação - Aventura</p>

@@ -38,4 +38,46 @@
     return $retorno->fetchAll(PDO::FETCH_ASSOC);
   
     }
-?>
+
+    /**
+     * REtorna o filme solicitado
+     * @param int $id
+     * @return array
+     */
+    
+    function getFilme($id)
+    {
+    
+    $con = conecta();
+    
+    $sql = "SELECT *
+        FROM Filmes
+        WHERE id = $id";
+    
+    $retorno = $con->query($sql);
+
+    return  $retorno->fetch(PDO::FETCH_ASSOC);
+
+    
+    
+    }
+    
+    function pesquisaPorNome($nome)
+    {
+        $sql = "SELECT * FROM Filmes
+                WHERE nome LIKE '%$nome%'";
+        
+        
+        
+    $con = conecta();
+        
+    $retorno = $con->query($sql);
+    
+    return $retorno->fetchAll(PDO::FETCH_ASSOC);
+    
+    }
+    
+    
+    
+    
+    ?>

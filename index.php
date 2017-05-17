@@ -38,9 +38,9 @@ require_once './model/filmes_pdo.php';
           <a class="navbar-brand" href="#">Meu NetFlix</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
+            <form class="navbar-form navbar-right" action="pesquisaFilmes.php" method="POST">
             <div class="form-group">
-              <input type="text" placeholder="Pesquisar" class="form-control">
+              <input type="text" name= "pesquisa" placeholder="Pesquisar" class="form-control">
             </div>
             
             <button type="submit" class="btn btn-success">Pesquisar</button>
@@ -55,8 +55,11 @@ require_once './model/filmes_pdo.php';
       <!-- Example row of columns -->
       <div class="row">
          <?php
-         
-            $filmes = listaFilmes();
+         if (isset($filmes)== false)
+         {
+            $filmes = listaFilmes(); 
+         }
+            
           
          
             /*for ($i=o; $1 < count ($filmes); $i==)
@@ -74,7 +77,7 @@ require_once './model/filmes_pdo.php';
           <img src="imagens/<?php echo $filme ["imagem"] ?>" alt="" class="img-thumbnail"/>
           
           <p><?php echo $filme["descricao"] ?>   </p>
-          <p><a class="btn btn-default" href="detalhes.php" role="button">Ver detalhes &raquo;</a></p>
+          <p><a class="btn btn-default" href="detalhes.php?id=<?php echo $filme["id"]; ?>" role="button">Ver detalhes &raquo;</a></p>
         </div>
         <?php   endforeach; ?>
           
