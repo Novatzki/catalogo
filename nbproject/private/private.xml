@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/aluno/edir/catalogo/filme.php</file>
-            <file>file:/home/aluno/edir/catalogo/model/filmes.php</file>
-            <file>file:/home/aluno/edir/catalogo/detalhes.php</file>
-            <file>file:/home/aluno/edir/catalogo/index.php</file>
-            <file>file:/home/aluno/edir/catalogo/pesquisaFilmes.php</file>
-            <file>file:/home/aluno/edir/catalogo/model/filmes_pdo.php</file>
+            <file>file:/home/aluno/Fernando/catalogo/sair.php</file>
+            <file>file:/home/aluno/Fernando/catalogo/template/topo_admin.php</file>
+            <file>file:/home/aluno/Fernando/catalogo/atualizar.php</file>
+            <file>file:/home/aluno/Fernando/catalogo/template/login.php</file>
+            <file>file:/home/aluno/Fernando/catalogo/model/usuario.php</file>
+            <file>file:/home/aluno/Fernando/catalogo/filme.php</file>
+            <file>file:/home/aluno/Fernando/catalogo/model/avaliacoes.php</file>
+            <file>file:/home/aluno/Fernando/catalogo/admin.php</file>
+            <file>file:/home/aluno/Fernando/catalogo/cadastro.php</file>
         </group>
     </open-files>
 </project-private>

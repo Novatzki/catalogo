@@ -15,7 +15,14 @@
             <li ><a href="cadastro.php">Cadastrar Novo</a></li>            
           </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/sair.php"><?php echo $_SESSION ['usuario'] ['usuario'] ?>;</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                    <?php echo $_SESSION['usuario']['nome'] ?></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Alterar Senha</a></li>
+                        <li><a href="/sair.php">Logout</a></li>
+                    </ul>
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
       </div>

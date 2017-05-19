@@ -17,11 +17,11 @@ class Usuario
     
     public function validaUsuario($usuario, $senha)
     {
-        $sql = "SELECT * FROM usuarios"
+        $sql = "SELECT * FROM usuarios " 
         . "WHERE usuario = '$usuario'"
         . "AND senha = '$senha' "
         . "AND ativo = 1";
-        
+               
         $con = $this->conecta();
         
         $resultado = $con->query($sql);

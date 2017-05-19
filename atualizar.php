@@ -2,7 +2,6 @@
 
 session_start();
 
-
 if (isset($_SESSION['usuario']))
 {
 
@@ -16,7 +15,4 @@ $id = $_GET["id"];
 
 $filme = obtemFilme($id);
 
-
-include 'cadastro.php';
-
-
+include './template/cadastro.php';

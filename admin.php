@@ -25,8 +25,12 @@ if (isset($_SESSION['usuario']))
 
 
     <title>Cadastro de Filmes</title>
-
+    
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    
     
   </head>
   
