@@ -17,10 +17,13 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                    <?php echo $_SESSION['usuario']['nome'] ?></a>
+                    <?php echo $_SESSION['usuario']['nome'] ?>
+                    <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Alterar Senha</a></li>
                         <li><a href="/sair.php">Logout</a></li>
+                        <li role="separator" class="divider"></li>
                     </ul>
                 </li>
             </ul>
