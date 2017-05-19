@@ -1,13 +1,10 @@
 <?php
-
-require_once './model/filmes_pdo.php';
-
+    require_once './model/conexao.php';   
+    require_once './model/filmes_pdo.php';
+    
+    $filmes_pdo = new Filmes();
 ?>
-
-
-
-
-!<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -26,60 +23,34 @@ require_once './model/filmes_pdo.php';
 
   <body>
 
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Meu NetFlix</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right" action="pesquisaFilmes.php" method="POST">
-            <div class="form-group">
-              <input type="text" name= "pesquisa" placeholder="Pesquisar" class="form-control">
-            </div>
-            
-            <button type="submit" class="btn btn-success">Pesquisar</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+    <?php      include "./template/barra_topo.html"; ?>
 
 
 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-         <?php
-         if (isset($filmes)== false)
-         {
-            $filmes = listaFilmes(); 
-         }
-            
-          
-         
-            /*for ($i=o; $1 < count ($filmes); $i==)
-             * {
-             *  $filme = $filmes[$1];
-             * }
-             */
+        <?php
+        if (isset($filmes) == false)
+        {
+            $filmes = $filmes_pdo->listaFilmes();
+        }   
+            /*for ($i=0; $i < count($filmes); $i++)
+            {
+                $filme = $filmes[$i];
+            }*/
             
             foreach ($filmes as $filme):
-         ?>
-        
+        ?>
         <div class="col-md-4">
-          <h2><?php echo $filme ["nome"] ?></h2>
+          <h2><?php echo $filme["nome"] ?></h2>
           
-          <img src="imagens/<?php echo $filme ["imagem"] ?>" alt="" class="img-thumbnail"/>
+          <img src="imagens/<?php echo $filme["imagem"] ?>" alt="" class="img-thumbnail"/>
           
-          <p><?php echo $filme["descricao"] ?>   </p>
+          <p><?php echo $filme["descricao"] ?></p>
           <p><a class="btn btn-default" href="detalhes.php?id=<?php echo $filme["id"]; ?>" role="button">Ver detalhes &raquo;</a></p>
         </div>
-        <?php   endforeach; ?>
+        <?php        endforeach; ?>
           
       </div>
 

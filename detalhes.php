@@ -1,12 +1,20 @@
-<?php
+<?php 
 
-    require_once 'model/filmes_pdo.php';
-
-    $id = $_GET["id"];
-    $filme = getFilme($id);
+   require_once './model/conexao.php';  
+      require_once './model/filmes_pdo.php';
+   require_once './model/avaliacoes.php';
    
-?>
+  $filmes_pdo = new Filmes();
+  $avaliacao = new Avaliacoes();
+      
+      $id = $_GET["id"];
+   $filme = getFilme($id);
+   $filme = $filmes_pdo->getFilme($id);
 
+   $nota = $avaliacao->getNota($id);
+ 
+    
+  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +58,8 @@
             </div>
         </nav>
 
-
+        
+        <?php      include "./template/barra_topo.html"; ?>
 
         <div class="container">
             <!-- Example row of columns -->
@@ -65,6 +74,7 @@
                 <p>Atores: Mel Gibson</p>
                 <p>Avaliação: 4/5</p>
                 <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="rating-block">
                         <h4>Average user rating</h4>
                         <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
@@ -78,11 +88,22 @@
                             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                         </button>
                         <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                        <h4>Nota média</h4>
+ +                        <h2 class="bold padding-bottom-7"> <?php echo $nota; ?> <small>/ 5</small></h2>
+ +                    <?php for ($i = 0; $i < 5; $i++): ?>  
+ +                        <?php if($nota > $i ): ?>
+ +                        <a href="controller/votar.php?id=<?php echo $id; ?>&nota=<?php echo $i+1; ?>" class="btn btn-warning btn-sm" aria-label="Left Align">    
                             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                         </button>
                         <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          </a>
+ +                        <?php else: ?>
+ +                        <a href="controller/votar.php?id=<?php echo $id; ?>&nota=<?php echo $i+1; ?>" class="btn btn-default btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                         </button>
+                          </a>
+                          <?php endif; ?>
+ +                    <?php endfor; ?>   
                     </div>
                 </div>
 

@@ -1,11 +1,10 @@
 <?php
 
- require_once './model/filmes_pdo.php';
+require_once './model/filmes_pdo.php';
 
-$nome = $_POST['pesquisa'];
- 
-$filmes = pesquisaPorNome($nome);
+$filmes_pdo = new Filmes();
+$pesquisa = $_POST['pesquisa'];
+$filmes = $filmes_pdo->pesquisaPorNome($pesquisa);
+
 
 include './index.php';
-
-?>

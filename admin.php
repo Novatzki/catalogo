@@ -1,8 +1,15 @@
 <?php
+session_start();
 
-    require_once './model/filmes.php';
+require_once './model/filmes.php';
+if (isset($_SESSION['usuario']))
+{
+     $msg = (isset($_GET["msg"]) == true)? $_GET["msg"] : FALSE;
+}  else {
+    header("Location: login.php");
+}
 
-    $msg = (isset($_GET["msg"]) == true)? $_GET["msg"] : FALSE;
+   
     
 ?>
 
@@ -25,25 +32,7 @@
   
   <body>
 
-    <nav class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Meu NetFlix</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="admin.php">Home</a></li>
-            <li ><a href="cadastro.php">Cadastrar Novo</a></li>            
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    <?php      include './template/topo_admin.php'; ?>
 
     <div class="container">
 
